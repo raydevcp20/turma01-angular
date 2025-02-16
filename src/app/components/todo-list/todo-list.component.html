@@ -1,0 +1,21 @@
+<div class="todo-container">
+    <h1>To-Do List</h1>
+    <div class="todo-input">
+      <input type="text" id="taskInput" placeholder="Add a new task..." />
+      @if(userPermission == 'admin'){
+        <button id="addTaskBtn">Add</button>  
+      }
+    </div>
+
+    <ul class="todo-list" id="todoList" >
+        @for(item of items; track item){
+            <li>
+              <input type="checkbox" [checked]="item.check">
+              <span>{{ item.nome }}</span>
+              <button>Delete</button>
+            </li>
+        }@empty {
+            <p>Não há itens</p>
+        }
+    </ul>
+  </div>

@@ -1,0 +1,63 @@
+<h3>Diretivas de atributos</h3>
+<!-- ngClass -->
+<h5>ngClass</h5>
+<p>Valor variável "clicou": {{ clicou }}</p>
+<p>Valor variável "tipo": {{ tipo }}</p>
+<input
+  placeholder="Digite Aqui..."
+  type="text"
+  [ngClass]="{ focus: clicou, success: tipo == 'success' }"
+/>
+<br /><br />
+<!-- ngStyle -->
+<h5>ngStyle</h5>
+<!-- forma 1 -->
+<button
+  class="btn"
+  [ngStyle]="{ backgroundColor: clicou ? '#fe074c' : '#24c6c7' }"
+>
+  Enviar
+</button>
+<!-- forma 2 -->
+<!-- <button [ngStyle]="{ 'backgroundColor' : returnColor() }"> Enviar </button> -->
+<!-- forma 3 -->
+<!-- <button [ngStyle]="{ 'backgroundColor' : color }"> Enviar </button> -->
+
+<br /><br /><br /><br />
+<h3>Diretivas de estruturas</h3>
+<!-- ngIf -->
+<h5>*ngIf</h5>
+<button class="btn" (click)="clicou = !clicou">Clique aqui</button>
+<p *ngIf="clicou">Clicou</p>
+<br /><br />
+
+
+<!-- ngFor -->
+<h5>*ngFor</h5>
+<div class="listagem">
+  <h5>Lista de compras</h5>
+  <ul>
+    <li *ngFor="let item of itens; let indice = index">
+      <span> {{ item }} - {{ indice }} </span>
+    </li>
+  </ul>
+</div>
+<br /><br />
+
+
+<!-- ngSwitch -->
+<h5>*ngSwitch</h5>
+<div [ngSwitch]="choseAlert">
+  <div *ngSwitchCase="'12'" class="alert alert-primary" role="alert">
+    Exemplo onde a variável é igual a string 12
+  </div>
+  <div *ngSwitchCase="12" class="alert alert-secondary" role="alert">
+    Exemplo onde a variável é igual a número 12
+  </div>
+  <div *ngSwitchCase="'success'" class="alert alert-success" role="alert">
+    Exemplo onde a variável é igual a string success
+  </div>
+    <div *ngSwitchDefault class="alert alert-danger" role="alert">
+        Exemplo onde a variável não é igual a nenhum dos casos
+    </div>
+</div>

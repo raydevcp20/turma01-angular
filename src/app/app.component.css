@@ -1,7 +1,4 @@
-.focus{
-    border: 1px solid red;
-}
-
-.unfocus{
-    border: 1px solid black;
+.container {
+  margin-top: 20px;
+  padding: 0 100px;
 }
