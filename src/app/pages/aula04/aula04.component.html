@@ -1,1 +1,60 @@
-<p>aula04 works!</p>
+<h3>Decorator &#64;input e &#64;output</h3>
+<!-- @input -->
+<h5>&#64;input</h5>
+<p>
+  Usado principalmente para enviar dados de um componente pai para um componente
+  filho.
+</p>
+<p>
+  Abaixo foi criado um componente de botão e um componente de input externos.
+</p>
+<p> O botão recebe um texto e uma cor. </p>
+<app-button
+  text="Salvar"
+  color="#2cdb09"
+></app-button>
+<!-- Exemplo 02 -->
+<app-button text="Excluir" color="red"></app-button>
+<!-- Exemplo 03 -->
+<app-button [text]="text" color="blue"></app-button>
+<!-- Exemplo 04 -->
+<app-button [text]="'Enviar'" [color]="'#168716'"></app-button>
+<br /><br />
+
+<p> O input recebe um placeholder, um valor e um status. </p>
+<app-input
+  placeholder="Digite seu nome"
+  value="Bruna Ribeiro"
+  status="success"
+></app-input>
+<!-- Exemplo 02 -->
+<app-input
+  placeholder="Digite seu nome"
+  status="disabled"
+></app-input>
+<br/><br/>
+
+<!-- @output -->
+<h5>&#64;output</h5>
+<p>
+  Usado principalmente para enviar dados de um componente filho para um componente
+  pai.
+</p>
+<p>
+  Abaixo foi reutilizado os componentes de botão e input externos.
+</p>
+<p> O botão envia um evento de click. </p>
+<app-button
+  text="Salvar"
+  color="#2cdb09"
+  (clicou)="aoClicar($event)">
+</app-button>
+<br>
+<!-- Exemplo input -->
+<p> O input envia um evento de focus. </p>
+<app-input
+  placeholder="Digite seu nome"
+  value="Bruna Ribeiro"
+  status="success"
+  (change)="aoDigitar($event)"
+></app-input>
