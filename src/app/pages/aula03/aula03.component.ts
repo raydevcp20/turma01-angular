@@ -1,12 +1,32 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { TodoListComponent } from '../../components/todo-list/todo-list.component';
+import { CurrencyPipe, DatePipe, JsonPipe, LowerCasePipe, SlicePipe, UpperCasePipe } from '@angular/common';
+import { FormatCEPPipe } from '../../pipes/format-cep.pipe';
 
 @Component({
   selector: 'app-aula03',
-  imports: [RouterLink],
+  imports: [
+    FormsModule,
+    TodoListComponent,
+    DatePipe,
+    LowerCasePipe,
+    UpperCasePipe,
+    CurrencyPipe,
+    JsonPipe,
+    SlicePipe,
+    FormatCEPPipe,
+  ],
   templateUrl: './aula03.component.html',
-  styleUrl: './aula03.component.css'
+  styleUrl: './aula03.component.css',
 })
 export class Aula03Component {
+  password: string = '';
+  itens: string[] = ['item 1', 'item 2', 'item 3', 'item 4', 'item 5'];
+  buttonType: string = 'success';
 
+  date: any = new Date();
+  text: string = 'Exemplo de texto';
+  number: number = 1290.5;
+  obj: any = { nome: 'Fulano', idade: 30, endereco: { rua: 'Rua 1', numero: 10 } };
 }

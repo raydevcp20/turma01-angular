@@ -1,48 +1,158 @@
-<!-- <form>
+<h3>Nova sintaxe</h3>
+<!-- @if, @else if e @else -->
+<h5>Bloco &#64;if, &#64;else if e &#64;else</h5>
+<form>
+  <p>Exemplo:</p>
   <label for="">Digite sua senha</label>
-  <input type="text" [(ngModel)]="password"/>
-  @if(password.length <= 6){
-    <p>Sua senha deve possuir mais que 6 digitos.</p>
-  } @else if(password.length > 6 && password.length <= 10){
-    <p>Sua senha está no tamanho ideal.</p>
-  } @else {
-    <p>Sua senha está muito grande.</p>
-  }
-</form> -->
+  <form>
+    <input type="text" name="password" [(ngModel)]="password" />
+    @if(password.length <= 6){
+      <p>Sua senha deve possuir mais que 6 digitos.</p>
+    } @else if(password.length > 6 && password.length <= 10){
+      <p>Sua senha está no tamanho ideal.</p>
+    } @else {
+      <p>Sua senha está muito grande.</p>
+    }
+  </form>
+</form>
+<br /><br />
 
-<!-- <ul>
-  @for (item of itens; track item) {
+<!-- @for -->
+<h5>Bloco &#64;for</h5>
+<div class="listagem">
+  <p>Exemplo de lista 01</p>
+  <ul>
+    <!-- O for diferente do ngFor necessita de uma variável para rastrear o valor do item. 
+     Afim de sua renderização seja feita de forma correta, é ele o 'track item' -->
+    @for (item of itens; track item) {
     <li>{{ item }}</li>
-  } @empty {
+    } @empty {
+    <!-- Caso a lista esteja vazia, é possível utilizar o bloco @empty -->
     <li>Lista vazia, cadastre um item.</li>
-  }
-</ul> -->
+    }
+  </ul>
+</div>
+<br />
+<div class="listagem">
+  <p>Exemplo de lista 02</p>
+  <ul>
+    <!-- Já para fazer o uso do indice do item, é necessário utilizar 'let i = $index'
+     no final da declaração do bloco for -->
+    @for (item of itens; track item; let i = $index) {
+    <li>{{ item }} - {{ i }}</li>
+    } @empty {
+    <li>Lista vazia, cadastre um item.</li>
+    }
+  </ul>
+</div>
+<br /><br />
 
 
-<!-- @switch (buttonType) {
+<!-- @switch -->
+<h5>Bloco &#64;switch</h5>
+<!-- O bloco switch é utilizado para fazer a comparação de valores, 
+    e a partir disso, renderizar o bloco de código que corresponde ao valor, 
+    nesse exemplo 'buttonType'. -->
+<p>
+  Para verificar os exemplos troque o valor da variável 'buttonType' no
+  controller.
+</p>
+@switch (buttonType) { 
   @case ('success') {
+  <!-- Caso o valor de buttonType seja igual a 'success', 
+        o bloco de código abaixo será renderizado. -->
     <button class="btn btn-success">Success</button>
-  }
+  } 
   @case ('error') {
+    <!-- Caso o valor de buttonType seja igual a 'error', 
+            o bloco de código abaixo será renderizado. -->
     <button class="btn btn-danger">Error</button>
-  }
+  } 
   @default {
+    <!-- Caso o valor de buttonType não seja igual a nenhum dos casos acima, 
+            o bloco de código abaixo será renderizado. -->
     <button class="btn btn-primary">Primary</button>
-  }
-} -->
+  } 
+}
+<br /><br /><br /><br />
 
-<!-- @defer {
-  <calendar-cmp />
+
+<!-- @defer -->
+<h5>Bloco &#64;defer</h5>
+<!-- O bloco defer é utilizado para adiar a renderização de um bloco de código, 
+    nesse exemplo, o bloco de código abaixo será renderizado após 3 segundos. -->
+<p> 
+  Para verificar o exemplo, aumente o tempo de espera no decorator '&#64;defer(on timer(3000))' 
+  e recarregue a tela. 
+</p>
+@defer(on timer(3000)) {
+  <p>Renderizado após 3 segundos</p>
+  <app-todo-list></app-todo-list>
 } @placeholder {
-  <p>Placeholder</p>
+  <p>Carregado antes de iniciar o carregamento do componente no bloco acima.</p> 
+  <img
+    alt="loading image"
+    src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=6c09b952b8ar4jhay9j2xfpkmiwem5oubufn5mimhtgxerzc&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+  />
 } @loading {
-  <img alt="loading image" src="loading.gif" />
+  <p> Carregado enquanto o bloco defer é renderizado. </p>
+  <h1>loading component...</h1>
 } @error {
+  <p> Carregado caso ocorra um erro no carregamento do bloco defer. </p>
   <p>An loading error occurred</p>
-} -->
+}
+<br/><br/>
 
-<a routerLink="/todo-list">To do List</a>
 
- <!-- {{"oi " | date }} -->
+<h3>Pipes</h3>
+<h5>Pipe date</h5>
+<p>Valor sem pipe: {{ date }}</p>
+<p>Valor com pipe de data: {{ date | date }}</p>
+<p>Formato brasileiro com formato `dd/MM/yyyy`: {{ date | date : "dd/MM/yyyy" }}</p>
+<p>Formato brasileiro com formato `dd/MM/yyyy HH:mm`: {{ date | date : "dd/MM/yyyy HH:mm" }}</p>
+<p>Formato brasileiro com formato `dd LLLL yyyy`: {{ date | date : "dd LLLL yyyy" }}</p>
+<ul>
+  <p>Índice</p>
+  <li>dd - dia</li>
+  <li>MM - mês</li>
+  <li>yyyy - ano</li>
+  <li>HH - hora</li>
+  <li>mm - minuto</li>
+  <li>LLLL - mês por extenso</li>
+</ul>
+<br />
 
- 
+<h5>Pipe uppercase e lowercase</h5>
+<p>Valor sem pipe: {{ text }}</p>
+<p>Valor com pipe de uppercase: {{ text | uppercase }}</p>
+<p>Valor com pipe de lowercase: {{ text | lowercase }}</p>
+<br />
+
+
+<h5>Pipe currency</h5>
+<p>Valor sem pipe: {{ number }}</p>
+<p>Valor com o pipe de moeda: {{ number | currency }}</p>
+<p>Valor com moeda brasileira (PT): {{ number | currency : "PT" }}</p>
+<p>Valor com moeda brasileira e simbolo (R$): {{ number | currency : "PT" : "R$" }}</p>
+<p>Valor com moeda do tipo USD e simbolo ($): {{ number | currency : "en-US" : "$" }}</p>
+<p>Exemplo 2 com moeda brasileira e limitador de decimais: {{ 1234.56 | currency : "BRL" : "R$" : "1.3-5" }}</p>
+<br />
+
+<h5>Pipe json</h5>
+<p>Valor sem pipe: {{ obj }}</p>
+<p>Valor com pipe de json: {{ obj | json }}</p>
+<br />
+
+<h5>Pipe slice</h5>
+<!-- O pipe slice também funciona como o método slice do JavaScript, tanto 
+ em strings como em arrays, onde é possível passar o índice inicial e final 
+ para a exibição do texto. -->
+<p>Valor sem pipe: {{ "Exemplo de texto com slice" }}</p>
+<p>Valor com pipe de slice: {{ "Exemplo de texto com slice" | slice : 0 : 7 }}</p>
+<p>Valor com pipe de slice: {{ "Exemplo de texto com slice" | slice : 8 : 11 }}</p>
+<br /><br />
+
+
+<h5>Pipe personalizado - Formatador de CEP</h5>
+<p>Valor sem pipe: {{ "12312323" }}</p>
+<p>Valor com pipe de CEP: {{ "12312323" | formatCEP }}</p><!-- 12312-323 -->

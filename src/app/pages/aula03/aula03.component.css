@@ -1,0 +1,81 @@
+h3 {
+  color: #333;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+h5 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  max-width: 300px;
+  padding: 6px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilo da lista */
+.listagem ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilo dos itens */
+.listagem li {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.2s;
+  background-color: #24c6c7;
+}
+
+/* Efeito hover nos itens */
+.listagem li:hover {
+  background-color: #1a9c9f;
+  transform: scale(1.02);
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #fe074c;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff0a5f;
+}
+
+.btn.btn-success {
+  background-color: #168716;
+}
+
+.btn.btn-danger {
+  background-color: #891717;
+}
+
+.btn.btn-primary {
+  background-color: #4545a2;
+}
