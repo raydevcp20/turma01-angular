@@ -132,7 +132,10 @@
 <h5>Pipe currency</h5>
 <p>Valor sem pipe: {{ number }}</p>
 <p>Valor com o pipe de moeda: {{ number | currency }}</p>
-<p>Valor com moeda brasileira (PT): {{ number | currency : "PT" }}</p>
+<p>Valor com decimal brasileiro (PT): {{ number | currency : "BRL": "symbol": "2.1-3": "PT" }}</p>
+<p>Valor com decimal extrangeiro (En): {{ number | currency : "USD": "symbol": "2.1-3": "En" }}</p>
+<br>
+<br>
 <p>Valor com moeda brasileira e simbolo (R$): {{ number | currency : "PT" : "R$" }}</p>
 <p>Valor com moeda do tipo USD e simbolo ($): {{ number | currency : "en-US" : "$" }}</p>
 <p>Exemplo 2 com moeda brasileira e limitador de decimais: {{ 1234.56 | currency : "BRL" : "R$" : "1.3-5" }}</p>
