@@ -9,13 +9,6 @@ import { FormatCEPPipe } from '../../pipes/format-cep.pipe';
   imports: [
     FormsModule,
     TodoListComponent,
-    DatePipe,
-    LowerCasePipe,
-    UpperCasePipe,
-    CurrencyPipe,
-    JsonPipe,
-    SlicePipe,
-    FormatCEPPipe,
   ],
   templateUrl: './aula03.component.html',
   styleUrl: './aula03.component.css',
@@ -24,9 +17,4 @@ export class Aula03Component {
   password: string = '';
   itens: string[] = ['item 1', 'item 2', 'item 3', 'item 4', 'item 5'];
   buttonType: string = 'success';
-
-  date: any = new Date();
-  text: string = 'Exemplo de texto';
-  number: number = 1290.5;
-  obj: any = { nome: 'Fulano', idade: 30, endereco: { rua: 'Rua 1', numero: 10 } };
 }

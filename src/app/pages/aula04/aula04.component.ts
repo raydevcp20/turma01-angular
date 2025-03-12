@@ -1,21 +1,27 @@
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { InputComponent } from '../../components/input/input.component';
+import { CurrencyPipe, DatePipe, JsonPipe, LowerCasePipe, SlicePipe, UpperCasePipe } from '@angular/common';
+import { FormatCEPPipe } from '../../pipes/format-cep.pipe';
 
 @Component({
   selector: 'app-aula04',
-  imports: [ButtonComponent, InputComponent],
+  imports: [
+    DatePipe,
+    LowerCasePipe,
+    UpperCasePipe,
+    CurrencyPipe,
+    JsonPipe,
+    SlicePipe,
+    FormatCEPPipe,
+  ],
   templateUrl: './aula04.component.html',
   styleUrl: './aula04.component.css'
 })
 export class Aula04Component {
-  text: string = "Texto do botão";
+  date: any = new Date();
+  text: string = 'Exemplo de texto';
+  number: number = 1290.5;
+  obj: any = { nome: 'Fulano', idade: 30, endereco: { rua: 'Rua 1', numero: 10 } };
 
-  aoClicar(event: any){
-    console.log("Evento de clique no botão:", event);
-  }
-
-  aoDigitar(event: any){
-    console.log("Evento de digito no input:", event);
-  }
 }
