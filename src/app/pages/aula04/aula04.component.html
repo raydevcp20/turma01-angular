@@ -1,66 +1,55 @@
-<h3>Decorator &#64;input e &#64;output</h3>
-<!-- @input -->
-<h5>&#64;input</h5>
-<p>
-  Usado principalmente para enviar dados de um componente pai para um componente
-  filho.
-</p>
-<p>
-  Abaixo foi criado um componente de botão e um componente de input externos.
-</p>
-<p> O botão recebe um texto e uma cor. </p>
-<app-button
-  text="Salvar"
-  color="#2cdb09"
-></app-button>
-<!-- Exemplo 02 -->
-<app-button text="Excluir" color="red"></app-button>
-<!-- Exemplo 03 -->
-<app-button [text]="text" color="blue"></app-button>
-<!-- Exemplo 04 -->
-<app-button [text]="'Enviar'" [color]="'#168716'"></app-button>
+<h3>Pipes</h3>
+<h5>Pipe date</h5>
+<p>Valor sem pipe: {{ date }}</p>
+<p>Valor com pipe de data: {{ date | date }}</p>
+<p>Formato brasileiro com formato `dd/MM/yyyy`: {{ date | date : "dd/MM/yyyy" }}</p>
+<p>Formato brasileiro com formato `dd/MM/yyyy HH:mm`: {{ date | date : "dd/MM/yyyy HH:mm" }}</p>
+<p>Formato brasileiro com formato `dd LLLL yyyy`: {{ date | date : "dd LLLL yyyy" }}</p>
+<ul>
+  <p>Índice</p>
+  <li>dd - dia</li>
+  <li>MM - mês</li>
+  <li>yyyy - ano</li>
+  <li>HH - hora</li>
+  <li>mm - minuto</li>
+  <li>LLLL - mês por extenso</li>
+</ul>
+<br />
+
+<h5>Pipe uppercase e lowercase</h5>
+<p>Valor sem pipe: {{ text }}</p>
+<p>Valor com pipe de uppercase: {{ text | uppercase }}</p>
+<p>Valor com pipe de lowercase: {{ text | lowercase }}</p>
+<br />
+
+
+<h5>Pipe currency</h5>
+<p>Valor sem pipe: {{ number }}</p>
+<p>Valor com o pipe de moeda: {{ number | currency }}</p>
+<p>Valor com decimal brasileiro (PT): {{ number | currency : "BRL": "symbol": "2.1-3": "PT" }}</p>
+<p>Valor com decimal extrangeiro (En): {{ number | currency : "USD": "symbol": "2.1-3": "En" }}</p>
+<br>
+<br>
+<p>Valor com moeda brasileira e simbolo (R$): {{ number | currency : "PT" : "R$" }}</p>
+<p>Valor com moeda do tipo USD e simbolo ($): {{ number | currency : "en-US" : "$" }}</p>
+<p>Exemplo 2 com moeda brasileira e limitador de decimais: {{ 1234.56 | currency : "BRL" : "R$" : "1.3-5" }}</p>
+<br />
+
+<h5>Pipe json</h5>
+<p>Valor sem pipe: {{ obj }}</p>
+<p>Valor com pipe de json: {{ obj | json }}</p>
+<br />
+
+<h5>Pipe slice</h5>
+<!-- O pipe slice também funciona como o método slice do JavaScript, tanto 
+ em strings como em arrays, onde é possível passar o índice inicial e final 
+ para a exibição do texto. -->
+<p>Valor sem pipe: {{ "Exemplo de texto com slice" }}</p>
+<p>Valor com pipe de slice: {{ "Exemplo de texto com slice" | slice : 0 : 7 }}</p>
+<p>Valor com pipe de slice: {{ "Exemplo de texto com slice" | slice : 8 : 11 }}</p>
 <br /><br />
 
-<p> O input recebe um placeholder, um valor e um status. </p>
-<app-input
-  placeholder="Digite seu nome"
-  value="Bruna Ribeiro"
-  status="success"
-></app-input>
-<!-- Exemplo 02 -->
-<app-input
-  placeholder="Digite seu nome"
-  status="disabled"
-></app-input>
-<br/><br/><br>
 
-<!-- @output -->
-<h5>&#64;output</h5>
-<p>
-  Usado principalmente para enviar dados de um componente filho para um componente
-  pai.
-</p>
-<p>
-  Abaixo foi reutilizado os componentes de botão e input externos.
-</p>
-<p> O botão envia um evento de click. </p>
-<app-button
-  text="Salvar"
-  color="#2cdb09"
-  (clicou)="aoClicar($event)">
-</app-button>
-<br>
-<!-- Exemplo input -->
-<p> O input envia um evento de focus. </p>
-<app-input
-  placeholder="Digite seu nome"
-  value="Bruna Ribeiro"
-  status="success"
-  (change)="aoDigitar($event)"
-></app-input>
-<br><br><br>
-
-
-<h3>Input Signals</h3>
-<!-- input()-->
-<h5>input()</h5>
+<h5>Pipe personalizado - Formatador de CEP</h5>
+<p>Valor sem pipe: {{ "12312323" }}</p>
+<p>Valor com pipe de CEP: {{ "12312323" | formatCEP }}</p><!-- 12312-323 -->
