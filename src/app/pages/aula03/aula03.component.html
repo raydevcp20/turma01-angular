@@ -24,11 +24,11 @@
   <ul>
     <!-- O for diferente do ngFor necessita de uma variável para rastrear o valor do item. 
      Afim de sua renderização seja feita de forma correta, é ele o 'track item' -->
-    @for (item of itens; track item) {
-    <li>{{ item }}</li>
+    @for (item of itens; track item; let i = $index) { 
+      <li>{{ item }}</li>
     } @empty {
-    <!-- Caso a lista esteja vazia, é possível utilizar o bloco @empty -->
-    <li>Lista vazia, cadastre um item.</li>
+      <!-- Caso a lista esteja vazia, é possível utilizar o bloco @empty -->
+      <li>Lista vazia, cadastre um item.</li>
     }
   </ul>
 </div>

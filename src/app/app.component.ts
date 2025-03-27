@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./components/header/header.component";
@@ -10,4 +10,10 @@ import { HeaderComponent } from "./components/header/header.component";
 })
 export class AppComponent {
   title = 'Aulas de exercicios - Turma 01';
+  activeRoute: string = '';
+
+  constructor(private location: Location) {
+    this.activeRoute = this.location.path();
+    // console.log(this.location.path()); // retorna a rota atual
+  }
 }

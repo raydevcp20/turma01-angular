@@ -1,9 +1,22 @@
 <nav class="menu">
   <ul>
-    <li><a routerLink="aula02">Aula 02</a></li>
-    <li><a routerLink="aula03">Aula 03</a></li>
-    <li><a routerLink="aula04">Aula 04</a></li>
-    <li><a routerLink="aula05">Aula 05</a></li>
-    <li><a routerLink="aula06/rotas/parte01">Aula 06</a></li>
+    <!-- Exemplos de uso do routerLink -->
+
+    <!-- Exemplo 01 - apenas a rota -->
+    <li><a routerLinkActive="active" routerLink="/aula02">Aula 02</a></li>
+    <li><a routerLinkActive="active" routerLink="aula03">Aula 03</a></li>
+
+    <!-- Exemplo 02 - rota com [] -->
+    <li><a routerLinkActive="active" [routerLink]="['aula03']">Aula 04</a></li>
+    <li><a routerLinkActive="active" [routerLink]="['aula05']">Aula 05</a></li>
+    <li><a routerLinkActive="active" [routerLink]="['aula06']">Aula 06</a></li>
+    <li><a routerLinkActive="active" [routerLink]="['todo-list']">Lista produtos</a></li>
+
+    <!-- O routerLinkActive é uma diretiva que adiciona uma classe CSS ao elemento quando 
+    a rota ativa corresponde à rota do link. -->
   </ul>
 </nav>
+
+<!-- Obs: as ramificações de rotas são separadas por vírgula, mas na url elas são separadas por barra. -->
+<!-- Exemplo: /aula03/aula04 -->
+<!-- Exemplo: /produto/1 -->

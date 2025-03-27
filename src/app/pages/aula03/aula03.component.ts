@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TodoListComponent } from '../../components/todo-list/todo-list.component';
-import { CurrencyPipe, DatePipe, JsonPipe, LowerCasePipe, SlicePipe, UpperCasePipe } from '@angular/common';
-import { FormatCEPPipe } from '../../pipes/format-cep.pipe';
 
 @Component({
   selector: 'app-aula03',

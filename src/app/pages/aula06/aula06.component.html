@@ -1,1 +1,15 @@
-<p>aula06 works!</p>
+<!-- Roteamento -->
+<h5>Roteamento</h5>
+<div class="listagem">
+  <p>Clique em cada item para ser redirecionado para a tela de detalhamento</p>
+  <ul>
+    @for (item of itens; track item; let i = $index) {
+      <!-- Para acessar uma rota atravez do html é necessário utilizar o routerLink -->
+       <!-- Verificar o arquivo de rotas para ver a rota abaixo. -->
+        <!-- Já os .. são utilizados para voltar um nível de rota. -->
+      <li [routerLink]="['..','produto', i]">{{ item }}</li>
+    } @empty {
+      <li>Lista vazia, cadastre um item.</li>
+    }
+  </ul>
+</div>

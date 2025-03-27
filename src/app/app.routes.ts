@@ -5,6 +5,7 @@ import { Aula03Component } from './pages/aula03/aula03.component';
 import { Aula04Component } from './pages/aula04/aula04.component';
 import { Aula05Component } from './pages/aula05/aula05.component';
 import { Aula06Component } from './pages/aula06/aula06.component';
+import { ProdutoDetailComponent } from './pages/produto-detail/produto-detail.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'aula02', pathMatch: 'full' },
@@ -13,7 +14,10 @@ export const routes: Routes = [
     { path: 'aula03', component: Aula03Component },
     { path: 'aula04', component: Aula04Component },
     { path: 'aula05', component: Aula05Component },
-    { path: 'aula06/rotas/parte01', component: Aula06Component },
+    { path: 'aula06', component: Aula06Component },
+    { path: 'produto/:id', component: ProdutoDetailComponent}// Rota com parâmetro
+    // O :id é um parâmetro que será passado para a rota. Ele pode ser acessado pelo componente
+    // através do ActivatedRoute. Exemplo: this.route.snapshot.params['id'];
 ];
 
 // A aula 06 foi dedicada para roteamento, por isso a rota é diferente das demais.

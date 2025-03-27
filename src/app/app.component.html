@@ -1,7 +1,12 @@
-<app-header></app-header>
-<h1>{{ title }}</h1>
-<br>
-<br>
+<!-- Utilize a abordagem abaixo para validar se a rota ativa é diferente de '/todo-list' e, 
+caso seja, renderizar o componente app-header e o título da página. 
+Caso contrário, renderize apenas o componente router-outlet. -->
+@if(activeRoute !== '/todo-list' ){ 
+    <app-header></app-header>
+    <h1>{{ title }}</h1>
+    <br>
+    <br>
+}
 <div class="container">
     <router-outlet />
 </div>
