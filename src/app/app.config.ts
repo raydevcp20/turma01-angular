@@ -7,12 +7,14 @@ import localeEn from '@angular/common/locales/en';
 import localePtExtra from '@angular/common/locales/extra/pt';
 import localeEnExtra from '@angular/common/locales/extra/en';
 import { registerLocaleData } from '@angular/common';
+import { provideHttpClient } from '@angular/common/http';
 
 registerLocaleData(localePt, 'PT', localePtExtra); // registrando o sufixo 'PT' como português
 registerLocaleData(localeEn, 'En', localeEnExtra); // registrando o sufixo 'En' como inglês
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(), // Adicionando o HttpClientModule
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes),
     { provide: LOCALE_ID, useValue: 'PT' }, // Adicionando o LOCALE_ID como PT
