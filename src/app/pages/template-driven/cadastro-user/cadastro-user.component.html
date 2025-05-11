@@ -1,0 +1,48 @@
+<button class="btn" (click)="navigateTo('/aula07')">Voltar</button>
+<div class="login-container">
+  <div class="login-card">
+    <form class="login-form" (ngSubmit)="onSubmit(cadastroUsuario)"
+    #cadastroUsuario="ngForm">
+      <h2>Cadastro de usuários</h2>
+
+      <div class="form-group">
+        <label>Nome completo</label>
+        <input type="text" name="nome" class="form-control" #nome="ngModel" ngModel/>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" email name="email" class="form-control" #email="ngModel" ngModel/>
+        @if(email.invalid && email.touched){
+          <small>Digite um formato válido de email</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Data de nascimento</label>
+        <input type="date" name="dataNascimento" class="form-control" #dataNascimento="ngModel" ngModel/>
+      </div>
+
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" name="senha" class="form-control" #senha="ngModel" ngModel/>
+      </div>
+
+      <div class="form-group">
+        <label>Confirme a senha</label>
+        <input type="password" class="form-control" />
+      </div>
+
+      <button class="btn margin-bottom" type="submit">
+        Criar
+      </button>
+      <button
+        class="btn outlined"
+        type="button"
+        (click)="navigateTo('/aula07/login')"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>

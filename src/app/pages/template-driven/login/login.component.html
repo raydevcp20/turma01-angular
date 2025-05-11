@@ -1,0 +1,34 @@
+<button class="btn" (click)="navigateTo('/aula07')">Voltar</button>
+<div class="login-container">
+    <div class="login-card">
+      <form class="login-form" (ngSubmit)="onSubmit(loginForm)"
+      #loginForm="ngForm">
+        <h2>Login</h2>
+    
+        <div class="form-group">
+          <label>Email</label>
+          <input 
+          type="email" email 
+          name="email" 
+          class="form-control" 
+          #email="ngModel" 
+          ngModel required
+          [ngStyle]="{'border': email.invalid && email.touched ? '1px solid red': '1px solid black' }"/>
+          @if(email.invalid && email.touched){
+            <small>Digite um formato válido de email</small>
+          }
+        </div>
+    
+        <div class="form-group">
+          <label>Senha</label>
+          <input type="password" name="senha" class="form-control" #senha="ngModel" minlength="6" ngModel required/>
+          @if(senha.invalid && senha.touched){
+            <small>Digite mais que 6 caracteres</small>
+          }
+        </div>
+    
+        <button class="btn margin-bottom" type="submit" [disabled]="loginForm.invalid">Entrar</button>
+        <button class="btn outlined" type="button" (click)="navigateTo('/aula07/cadastro/user')">Criar usuário</button>
+      </form>
+    </div>
+</div>

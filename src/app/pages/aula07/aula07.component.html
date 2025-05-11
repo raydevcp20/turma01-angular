@@ -1,0 +1,126 @@
+<h3>Parte 01</h3>
+<p>Forma 01 de declarar o ngModel no template driven (porem não recomendada)</p>
+<!-- OBS: Lembre que toda vez que utiulizar um formulário dentro da tag form deve ser declarado
+o atributo html name, em cada tag de formulário (input, select e textarea) -->
+<!-- <form class="login-form"> -->
+<div class="form-group">
+  <label>Nome:</label>
+  <input class="form-control" type="text" [(ngModel)]="user.nome" />
+</div>
+<div class="form-group">
+  <label>Email:</label>
+  <input class="form-control" type="text" [(ngModel)]="user.email" />
+</div>
+<div class="form-group">
+  <label>Senha:</label>
+  <input class="form-control" type="text" [(ngModel)]="user.senha" />
+</div>
+<button class="btn" type="button" (click)="onSubmit($event)">Enviar</button>
+<!-- </form> -->
+
+<br />
+<br />
+<p>Forma 02 de declarar o ngModel no template driven (recomendada)</p>
+<div class="login-container">
+  <div class="login-card">
+    <h2>Formulário de cadastro</h2>
+    <!-- para utilizar template driven é necessário importar o FormsModule no app.module.ts
+     alem disso, para haver um agrupamento dos campos usa-se o ngForm, que é um
+     diretiva que é criada automaticamente quando se utiliza o template driven.  -->
+    <form
+      class="login-form"
+      (ngSubmit)="onSubmit(cadastroUsuario); cadastroUsuario.reset()"
+      #cadastroUsuario="ngForm"
+    >
+      <div class="form-group">
+        <label>Nome:</label>
+        <!-- 
+              Já em cada campo o ngModel é uma diretiva que cria um controle de formulário 
+             e o associa a um elemento do DOM.  
+             Já o #nome="ngModel" é uma referência local que permite acessar o controle de formulário
+             associado ao elemento.
+             -->
+        <input
+          class="form-control"
+          type="text"
+          required
+          minlength="2"
+          name="nome"
+          #nome="ngModel"
+          ngModel
+        />
+        <!-- Descomente para verificar os estados do campo: -->
+        <!-- O atributo valid é uma propriedade do controle de formulário que indica se o campo é válido ou não. -->
+        <!-- valid: {{ nome.valid }}
+        <br /> -->
+        <!-- O atributo invalid é uma propriedade do controle de formulário que indica se o campo é inválido ou não. -->
+        <!-- invalid: {{ nome.invalid }}
+        <br /> -->
+        <!-- O atributo touched é uma propriedade do controle de formulário que indica se o campo foi tocado ou não. -->
+        <!-- touched: {{ nome.touched }}
+        <br /> -->
+        <!-- O atributo untouched é uma propriedade do controle de formulário que indica se o campo não foi tocado ou não. -->
+        <!-- untouched: {{ nome.untouched }}
+        <br /> -->
+        <!-- O atributo dirty é uma propriedade do controle de formulário que indica se o campo foi modificado ou não. -->
+        <!-- dirty: {{ nome.dirty }}
+        <br /> -->
+        <!-- O atributo pristine é uma propriedade do controle de formulário que indica se o campo não foi modificado ou não. -->
+        <!-- pristine: {{ nome.pristine }}
+        <br /> -->
+        <!-- O atributo errors é uma propriedade do controle de formulário que indica se o campo tem erros ou não. -->
+        <!-- errors: {{ nome.errors | json }} -->
+      </div>
+
+      <div class="form-group">
+        <label for="">Código de usuário:</label>
+        <input
+          class="form-control"
+          type="text"
+          name="codigo"
+          #codigo="ngModel"
+          ngModel
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="">Senha:</label>
+        <input
+          class="form-control"
+          type="text"
+          name="senha"
+          #senha="ngModel"
+          ngModel
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="">Confirmar a senha:</label>
+        <input
+          class="form-control"
+          type="text"
+          name="confirm"
+          #confirm="ngModel"
+          ngModel
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="" class="label">Email</label>
+        <input class="form-control" type="text" />
+        <span>Digite um email valido</span>
+      </div>
+      <button class="btn" type="submit">Cadastrar</button>
+    </form>
+  </div>
+</div>
+
+<h3>Parte 02</h3>
+
+<button class="btn margin-bottom" (click)="navigateTo('aula07/login')">
+  Acessar desafio
+</button>
+<br />
+<button class="btn" (click)="navigateTo('aula07/exercicio02')">
+  Acessar exercicio 02
+</button>
