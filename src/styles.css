@@ -10,6 +10,24 @@ body {
   background-color: #f4f4f4;
 }
 
+h3 {
+  color: #333;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+h5 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
 h1 {
   color: #333;
   font-size: 32px;
