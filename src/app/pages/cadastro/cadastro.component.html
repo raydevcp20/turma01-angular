@@ -1,0 +1,13 @@
+<div class="login-container">
+  <div class="login-card">
+    <ng-content select="[title]"></ng-content>
+    <form
+      class="login-form"
+      (ngSubmit)="onSubmit(cadastroUsuario); cadastroUsuario.reset()"
+      #cadastroUsuario="ngForm"
+    >
+      <ng-content select="[body]"></ng-content>
+      <button class="btn" type="submit">Cadastrar</button>
+    </form>
+  </div>
+</div>

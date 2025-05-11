@@ -1,0 +1,34 @@
+.login-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form h2 {
+  margin-bottom: 24px;
+  text-align: center;
+  color: #333;
+}
+
+.login-card button.btn {
+  width: 100%;
+}
+
+button:disabled {
+  background-color: #a5c2f0;
+  cursor: not-allowed;
+}
+
+h1 {
+  background-color: #04388a !important;
+}

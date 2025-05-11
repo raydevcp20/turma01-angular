@@ -1,5 +1,8 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Injectable, Pipe, PipeTransform } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root', // Torna o pipe injetável
+})
 @Pipe({
   name: 'formatCEP' // nome do pipe
 })

@@ -1,0 +1,115 @@
+<!-- Services e injeção de dependência -->
+<h5>Services e injeção de dependência</h5>
+<p>formatar CPF: {{ generalService.formatCPF("12345678910") }}</p>
+<p>formatar CNPJ: {{ generalService.formatCNPJ("12345678000195") }}</p>
+<p>formatar CEP: {{ generalService.formatCEP("12345678") }}</p>
+<br />
+<br />
+<br />
+<!-- ng-template -->
+<div class="card">
+  <h2>Teste ng-template</h2>
+  <p>
+    O ng-template é uma diretiva que permite criar um template reutilizável. Ele
+    não é renderizado no DOM até que seja chamado explicitamente.
+  </p>
+  <!-- Para usar o ng-template, é necessário usar o *ngTemplateOutlet, que é uma diretiva
+  que permite renderizar o conteúdo de um ng-template em outro lugar do DOM. -->
+  <div *ngTemplateOutlet="templateAula08"></div>
+</div>
+
+<!-- No caso o ng-template abaixo será renderizado na div da linha 14 -->
+<ng-template #templateAula08>
+  <h5>
+    Aqui está um exemplo de texto que será renderizado quando o ng-template for
+    chamado. O ng-template é útil para criar templates reutilizáveis e
+    dinâmicos. Você pode usar o ng-template para criar componentes
+    personalizados ou para renderizar conteúdo condicionalmente, pelo if else.
+  </h5>
+</ng-template>
+<br />
+<br />
+<br />
+
+<!-- ng-container -->
+<h2>ng-container</h2>
+<p>
+  O ng-container é um elemento que não é renderizado no DOM, mas permite agrupar
+  elementos e aplicar diretivas a eles. Isso é útil quando você deseja aplicar
+  uma diretiva a um grupo de elementos sem adicionar um elemento extra ao DOM.
+</p>
+
+<!-- No exemplo abaixo para não renderizar uma div extra na linha 44 
+  utilizamos o ng-container. -->
+<ng-container [ngSwitch]="statusPedido">
+  <p *ngSwitchCase="'pendente'">
+    Seu pedido está pendente. Estamos processando.
+  </p>
+  <p *ngSwitchCase="'enviado'">Seu pedido foi enviado e está a caminho.</p>
+  <p *ngSwitchCase="'entregue'">
+    Seu pedido foi entregue. Obrigado pela compra!
+  </p>
+  <p *ngSwitchDefault>
+    Status do pedido desconhecido. Entre em contato com o suporte.
+  </p>
+</ng-container>
+
+<!-- ng-content -->
+<h2>ng-content</h2>
+<p>
+  O ng-content é uma diretiva que permite projetar conteúdo em um componente
+  filho. Isso significa que você pode criar um componente pai e projetar
+  conteúdo dentro dele, permitindo a reutilização de componentes.
+</p>
+<app-cadastro>
+  <h2 title>oii</h2>
+  <!-- Quando uma tag possui uma atributo (ex: title) o Angular irá renderizar ele
+  no ng-content que tiver o mesmo seletor (olha o código dentro do componente). -->
+  <ng-container body>
+    <div class="form-group">
+      <label>Nome:</label>
+      <input
+        class="form-control"
+        type="text"
+        required
+        minlength="2"
+        name="nome"
+        #nome="ngModel"
+        ngModel
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="">Código de usuário:</label>
+      <input
+        class="form-control"
+        type="text"
+        name="codigo"
+        #codigo="ngModel"
+        ngModel
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="">Senha:</label>
+      <input
+        class="form-control"
+        type="text"
+        name="senha"
+        #senha="ngModel"
+        ngModel
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="">Confirmar a senha:</label>
+      <input
+        class="form-control"
+        type="text"
+        name="confirm"
+        #confirm="ngModel"
+        ngModel
+      />
+    </div>
+  </ng-container>
+</app-cadastro>
