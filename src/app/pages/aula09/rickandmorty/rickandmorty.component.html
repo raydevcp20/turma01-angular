@@ -1,0 +1,37 @@
+<div class="input">
+  <input
+    class="form-control"
+    type="text"
+    placeholder="Digite o ID do personagem"
+    required
+    minlength="2"
+    [(ngModel)]="id"
+  />
+  <button class="btn" type="submit" (click)="searchCharacter()">Pesquisar</button>
+</div>
+
+<div class="character-list">
+  <div class="character-card">
+    <img
+      [src]="character.image"
+      alt="Imagem do Rick Sanchez"
+      class="character-image"
+    />
+    <div class="character-details">
+      <h2 class="character-name">{{ character.name }}</h2>
+      <p class="character-description">Gender: {{ character.gender }}</p>
+      <p class="character-status">Status: {{ character.status }}</p>
+      <p class="character-origin">Origem: {{ character.origin.name }}</p>
+    </div>
+  </div>
+
+  <!-- <div class="character-card">
+    <img src="https://via.placeholder.com/150" alt="Imagem do Morty Smith" class="character-image" />
+    <div class="character-details">
+      <h2 class="character-name">Morty Smith</h2>
+      <p class="character-description">O neto tímido e frequentemente relutante de Rick, que o acompanha em suas aventuras.</p>
+      <p class="character-status">Status: Vivo</p>
+      <p class="character-origin">Origem: Terra (C-137)</p>
+    </div>
+  </div> -->
+</div>

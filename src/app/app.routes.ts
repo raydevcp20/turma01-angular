@@ -13,6 +13,8 @@ import { CadastroUserComponent } from './pages/template-driven/cadastro-user/cad
 import { Exercicio02Component } from './pages/template-driven/exercicio02/exercicio02.component';
 import { Aula08Component } from './pages/aula08/aula08.component';
 import { Aula09Component } from './pages/aula09/aula09.component';
+import { PokedexComponent } from './pages/aula09/pokedex/pokedex.component';
+import { RickandmortyComponent } from './pages/aula09/rickandmorty/rickandmorty.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'aula02', pathMatch: 'full' },
@@ -32,6 +34,8 @@ export const routes: Routes = [
     { path: 'aula07/exercicio02', component: Exercicio02Component },
     { path: 'aula08', component: Aula08Component },
     { path: 'aula09', component: Aula09Component },
+    { path: 'aula09/pokedex', component: PokedexComponent },
+    { path: 'aula09/rickandmorty', component: RickandmortyComponent },
 ];
 
 // A aula 06 foi dedicada para roteamento, por isso a rota é diferente das demais.
